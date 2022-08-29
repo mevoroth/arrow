@@ -1,0 +1,17 @@
+{
+	"name": "client",
+	"version": "0.0.0",
+	"description": "client",
+	"main": "server.js",
+	"author": {
+		"name": ""
+	},
+	"dependencies": {
+		"@types/node": "^18.7.13",
+		"browserify": "^17.0.0",
+		"typescript": "^4.7.4"
+	},
+	"scripts": {
+		"build": "browserify js/main.js > js/bundle.js"
+	}
+}
