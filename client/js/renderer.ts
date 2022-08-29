@@ -1,11 +1,10 @@
 "use strict";
-import * as THREE from "./three";
+import * as THREE from "./three"
 
 export class Renderer {
 	constructor() {
 		this._Renderer = new THREE.WebGLRenderer();
 		this._Scene = new THREE.Scene();
-		this._Camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 		this.ResizeWindow();
 		document.getElementById("main").appendChild(this._Renderer.domElement);
 	}
@@ -15,30 +14,38 @@ export class Renderer {
 		console.log("Reisze " + window.innerWidth + "x" + window.innerHeight);
 	}
 	
-	public animate() {
-		requestAnimationFrame(this.animate.bind(this));
-
-		this.cube.rotation.x += 0.01;
-		this.cube.rotation.y += 0.01;
-
-		this._Renderer.render(this._Scene, this._Camera);
-	};
-
 	public Render() {
-		console.log("test hahaha");
+		requestAnimationFrame(this.Render.bind(this));
+		console.log(this._Camera.toJSON());
+		this._Renderer.render(this._Scene, this._Camera);
+	}
 
-		const geometry = new THREE.BoxGeometry(1, 1, 1);
-		const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-		this.cube = new THREE.Mesh(geometry, material);
-		this._Scene.add(this.cube);
+	public Commit() {
+		for (let PrimitiveToAddIndex = 0; PrimitiveToAddIndex < this._PrimitivesToAdd.length; ++PrimitiveToAddIndex) {
+			this._Scene.add(this._PrimitivesToAdd[PrimitiveToAddIndex]);
+		}
+		for (let PrimitiveToRemoveIndex = 0; PrimitiveToRemoveIndex < this._PrimitivesToRemove.length; ++PrimitiveToRemoveIndex) {
+			this._Scene.remove(this._PrimitivesToRemove[PrimitiveToRemoveIndex]);
+		}
+		this._PrimitivesToAdd = [];
+		this._PrimitivesToRemove = [];
+	}
 
-		this._Camera.position.z = 5;
+	public AddPrimitive(Primitive: THREE.Object3D) {
+		this._PrimitivesToAdd.push(Primitive);
+	}
 
-		this.animate();
+	public RemovePrimitive(Primitive: THREE.Object3D) {
+		this._PrimitivesToRemove.push(Primitive);
+	}
+
+	public SetCamera(Camera: THREE.Camera) {
+		this._Camera = Camera;
 	}
 
 	private _Renderer: THREE.WebGLRenderer;
+	private _PrimitivesToAdd: Array<THREE.Object3D> = [];
+	private _PrimitivesToRemove: Array<THREE.Object3D> = [];
 	private _Scene: THREE.Scene;
-	private _Camera: THREE.PerspectiveCamera;
-	private cube: THREE.Mesh;;
+	private _Camera: THREE.Camera;
 }

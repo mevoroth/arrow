@@ -36,9 +36,15 @@
     <Content Include="html\index.html">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="js\bundle.js" />
+    <Content Include="js\camera.js" />
     <Content Include="js\game.js" />
+    <Content Include="js\gameobject.js" />
+    <Content Include="js\gamestate.js" />
+    <Content Include="js\gamestatesurvival.js" />
     <Content Include="js\main.js" />
     <Content Include="js\renderer.js" />
+    <Content Include="js\survivalcharacter.js" />
     <Content Include="js\three.js" />
     <Content Include="package.json" />
     <Content Include="README.md" />
@@ -49,13 +55,28 @@
     <Folder Include="html\" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="js\camera.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="js\game.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="js\gameobject.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="js\gamestate.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="js\gamestatesurvival.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="js\main.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="js\renderer.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="js\survivalcharacter.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
   </ItemGroup>
