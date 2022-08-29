@@ -21,3 +21,12 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# project
+obj
+bin
+.vs
+node_modules
+*.js
+*.js.map
+!three.js
