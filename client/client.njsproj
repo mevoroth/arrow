@@ -42,6 +42,7 @@
     <Content Include="js\gameobject.js" />
     <Content Include="js\gamestate.js" />
     <Content Include="js\gamestatesurvival.js" />
+    <Content Include="js\keymapping.js" />
     <Content Include="js\main.js" />
     <Content Include="js\renderer.js" />
     <Content Include="js\survivalcharacter.js" />
@@ -68,6 +69,9 @@
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="js\gamestatesurvival.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="js\keymapping.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="js\main.ts">

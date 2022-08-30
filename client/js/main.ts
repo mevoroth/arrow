@@ -2,6 +2,6 @@
 import { Game } from "./game";
 
 (function Main() {
-	let ArrowGame = new Game();
+	let ArrowGame: Game = new Game();
 	ArrowGame.Execute();
 })();

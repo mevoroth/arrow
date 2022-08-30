@@ -6,7 +6,7 @@ export abstract class GameState {
 		this._Game = Game;
 	}
 
-	abstract Update(DeltaTime: number);
+	abstract Update(Game: Game, DeltaSeconds: number);
 
 	protected _Game: Game;
 }

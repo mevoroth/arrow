@@ -18,7 +18,8 @@ export class GameStateSurvival extends GameState {
 		this._MainCharacter.AddToScene(Game.GameRenderer);
 	}
 
-	override Update(DeltaTime: number) {
+	override Update(Game: Game, DeltaSeconds: number) {
+		this._MainCharacter.Update(Game, DeltaSeconds);
 		this._Camera.Commit(this._Game.GameRenderer);
 	}
 

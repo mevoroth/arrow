@@ -16,15 +16,14 @@ export class Renderer {
 	
 	public Render() {
 		requestAnimationFrame(this.Render.bind(this));
-		console.log(this._Camera.toJSON());
 		this._Renderer.render(this._Scene, this._Camera);
 	}
 
 	public Commit() {
-		for (let PrimitiveToAddIndex = 0; PrimitiveToAddIndex < this._PrimitivesToAdd.length; ++PrimitiveToAddIndex) {
+		for (let PrimitiveToAddIndex: number = 0; PrimitiveToAddIndex < this._PrimitivesToAdd.length; ++PrimitiveToAddIndex) {
 			this._Scene.add(this._PrimitivesToAdd[PrimitiveToAddIndex]);
 		}
-		for (let PrimitiveToRemoveIndex = 0; PrimitiveToRemoveIndex < this._PrimitivesToRemove.length; ++PrimitiveToRemoveIndex) {
+		for (let PrimitiveToRemoveIndex: number = 0; PrimitiveToRemoveIndex < this._PrimitivesToRemove.length; ++PrimitiveToRemoveIndex) {
 			this._Scene.remove(this._PrimitivesToRemove[PrimitiveToRemoveIndex]);
 		}
 		this._PrimitivesToAdd = [];

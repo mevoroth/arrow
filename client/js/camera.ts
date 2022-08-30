@@ -23,7 +23,7 @@ export class Camera {
 export class OrthographicCamera extends Camera {
 	public Commit(GameRenderer: Renderer) {
 		if (this._Dirty) {
-			let NewCamera = new THREE.OrthographicCamera(
+			let NewCamera: THREE.OrthographicCamera = new THREE.OrthographicCamera(
 				- this._Width / 2, this._Width / 2,
 				- this._Height / 2, this._Height / 2,
 				this._Near, this._Far

@@ -10,14 +10,14 @@ class ArrowServer {
 	}
 
 	public Execute() {
-		let Url = this._Request.url;
+		let Url: string = this._Request.url;
 
 		if (Url in this.Routes) {
 			Url = this.Routes[Url];
 		}
 
-		let FoundFile = false;
-		let WhitelistIndex = 0;
+		let FoundFile: boolean = false;
+		let WhitelistIndex: number = 0;
 		for (; WhitelistIndex < this.WhitelistFiles.length; ++WhitelistIndex) {
 			if (this.WhitelistFiles[WhitelistIndex].Files.includes(Url)) {
 				FoundFile = true;
@@ -27,7 +27,7 @@ class ArrowServer {
 
 		if (FoundFile) {
 			Url = "./client" + Url;
-			let FileContent = fs.readFileSync(Url, { encoding: 'utf8', flag: 'r' });
+			let FileContent: string = fs.readFileSync(Url, { encoding: 'utf8', flag: 'r' });
 
 			console.log("Access: " + Url);
 			//console.log(FileContent);
@@ -77,7 +77,7 @@ class ArrowServer {
 http.createServer(
 	function (Request: http.IncomingMessage, Result: http.ServerResponse) {
 		try {
-			let Server = new ArrowServer(Request, Result);
+			let Server: ArrowServer = new ArrowServer(Request, Result);
 			Server.Execute();
 		} catch (Error) {
 			console.error(Error);
